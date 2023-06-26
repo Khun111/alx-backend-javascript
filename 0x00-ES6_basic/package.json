@@ -1,0 +1,19 @@
+{
+  "description": "Basics on es6",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\"",
+    "dev": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khun111/alx-backend-javascript.git"
+  },
+  "author": "Oluwatobi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khun111/alx-backend-javascript/issues"
+  },
+  "homepage": "https://github.com/Khun111/alx-backend-javascript#readme"
+}
