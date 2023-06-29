@@ -1,4 +1,4 @@
-/* eslint no-underscore-dangle: ["error", {"allow": ["_name", "_code"] }] */
+/* eslint-disable no-underscore-dangle */
 export default class HolbertonCourse {
   constructor(name, length, students) {
     if (typeof name !== 'string') {

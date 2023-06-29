@@ -1,4 +1,4 @@
-/* eslint no-underscore-dangle: ["error", {"allow": ["_name", "_code"] }] */
+/* eslint-disable no-underscore-dangle */
 export default class Currency {
   constructor(code, name) {
     this._code = code;
