@@ -1,13 +1,19 @@
 const fs = require('fs')
 
 function countStudents(path) {
-    try {
-
- const readSync = fs.readFileSync(path, 'utf-8')
- const data = readSync.split('\n')
-
+    const asyncData = new Promise((resolve, reject) => {
+            fs.readFile(path, 'utf-8', (err, data) => {
+                    if (err) {
+                    reject(err => {
+throw new Error('Cannot load the database')
+                            })
+                    return
+                    }
+                    resolve(data)
+                    })
+            }).then(data => {
+data = data.split('\n')
 const dataCS = data.filter(e => e.includes('CS'))
-console.log(data)
 const dataSWE = data.filter(e => e.includes('SWE'))
 const sum = dataCS.length + dataSWE.length
 let csArr = []
@@ -23,8 +29,8 @@ for (const data of dataSWE) {
 console.log(`Number of students: ${sum}`)
 console.log(`Number of students in CS: ${dataCS.length}. ${csArr.join(', ')}`)
 console.log(`Number of students in SWE: ${dataSWE.length}. ${sweArr.join(', ')}`)
-} catch {
-    throw new Error('Cannot load the database')
-}
+
+                })
+return asyncData
 }
 module.exports = countStudents
