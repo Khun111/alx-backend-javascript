@@ -14,12 +14,12 @@ class StudentsController {
   static getAllStudentsByMajor(request, response) {
     const field = request.params.major.toUpperCase();
     if (field === 'CS' || field === 'SWE') {
-    readDatabase(path).then((data) => {
-      response.status(200).send(`List: ${data[field].join(', ')}`);
-    }).catch(() => response.status(500).send('Cannot load the database'));
-  } else {
-  response.status(500).send('Major parameter must be CS or SWE');
-  }
+      readDatabase(path).then((data) => {
+        response.status(200).send(`List: ${data[field].join(', ')}`);
+      }).catch(() => response.status(500).send('Cannot load the database'));
+    } else {
+      response.status(500).send('Major parameter must be CS or SWE');
     }
+  }
 }
 module.exports = StudentsController;
