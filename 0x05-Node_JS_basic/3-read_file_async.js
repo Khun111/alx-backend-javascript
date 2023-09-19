@@ -25,9 +25,9 @@ function countStudents(path) {
       let resolved = '';
       console.log(`Number of students: ${sum}`);
       resolved += `Number of students: ${sum}\n`;
-      console.log(`Number of students in CS: ${dataCS.length}. ${csArr.join(', ')}`);
+      console.log(`Number of students in CS: ${dataCS.length}. List: ${csArr.join(', ')}`);
       resolved += `Number of students in CS: ${dataCS.length}. ${csArr.join(', ')}\n`;
-      console.log(`Number of students in SWE: ${dataSWE.length}. ${sweArr.join(', ')}`);
+      console.log(`Number of students in SWE: ${dataSWE.length}. List: ${sweArr.join(', ')}`);
       resolved += `Number of students in SWE: ${dataSWE.length}. ${sweArr.join(', ')}`;
       resolve(resolved);
     });

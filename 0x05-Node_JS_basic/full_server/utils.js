@@ -7,7 +7,6 @@ const readDatabase = (path) => {
         reject(Error('Cannot load the database'));
         return;
       }
-      // eslint-disable-next-line no-param-reassign
       const dataP = data.split('\n');
       console.log(dataP);
       dataP.shift();
