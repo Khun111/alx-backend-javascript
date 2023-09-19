@@ -1,4 +1,5 @@
-import fs from 'fs'
+import fs from 'fs';
+
 const readDatabase = (path) => {
   const asyncData = new Promise((resolve, reject) => {
     fs.readFile(path, 'utf-8', (err, data) => {
@@ -7,27 +8,27 @@ const readDatabase = (path) => {
         return;
       }
       // eslint-disable-next-line no-param-reassign
-      const dataP = data.split('\n')
-      console.log(dataP)
-      dataP.shift()
-      let reqObj = {
-      'CS': [],
-      'SWE': []
-      }
+      const dataP = data.split('\n');
+      console.log(dataP);
+      dataP.shift();
+      const reqObj = {
+        CS: [],
+        SWE: [],
+      };
       for (const data of dataP) {
         const splitData = data.split(',');
         if (data.includes('CS')) {
-        reqObj['CS'].push(splitData[0]);
+          reqObj.CS.push(splitData[0]);
         }
         if (data.includes('SWE')) {
-        reqObj['SWE'].push(splitData[0]);
+          reqObj.SWE.push(splitData[0]);
         }
       }
-      console.log(reqObj)
-      resolve(reqObj)
-});
-});
-return asyncData
+      console.log(reqObj);
+      resolve(reqObj);
+    });
+  });
+  return asyncData;
 };
 
-module.exports = readDatabase
+module.exports = readDatabase;

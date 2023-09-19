@@ -7,10 +7,10 @@ function countStudents(path) {
         reject(Error('Cannot load the database'));
         return;
       }
-      // eslint-disable-next-line no-param-reassign
-      data = data.split('\n');
-      const dataCS = data.filter((e) => e.includes('CS'));
-      const dataSWE = data.filter((e) => e.includes('SWE'));
+
+      const dataP = data.split('\n');
+      const dataCS = dataP.filter((e) => e.includes('CS'));
+      const dataSWE = dataP.filter((e) => e.includes('SWE'));
       const sum = dataCS.length + dataSWE.length;
       const csArr = [];
       const sweArr = [];
