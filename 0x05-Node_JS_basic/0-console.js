@@ -1,4 +1,4 @@
-displayMessage = (str) => {
-    console.log(str);
+const displayMessage = (str) => {
+  console.log(str);
 };
-module.exports = displayMessage
+module.exports = displayMessage;
