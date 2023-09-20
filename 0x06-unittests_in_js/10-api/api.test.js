@@ -1,7 +1,5 @@
-const chai = require('chai')
 const request = require('request')
-const app = require('./api')
-const { expect } = chai
+const { expect } = require('chai')
 
 describe('Index Page', () => {
     it('should return the correct status code', (done) => {
