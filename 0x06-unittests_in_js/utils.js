@@ -1,7 +1,17 @@
-const calculateNumber = require('./2-calcul_chai.js')
-
 const Utils = {
-calculateNumber: calculateNumber(type, a, b)
+calculateNumber: (type, a, b) => {
+    switch (type) {
+        case 'SUM':
+           return (Math.round(a) + Math.round(b));
+        case 'SUBTRACT':
+            return (Math.round(a) - Math.round(b)) 
+        case 'DIVIDE':
+            return Math.round(b) == 0 ? 'Error' : (Math.round(a) / Math.round(b))
+        default:
+            break;
+    }
+}
+
 }
 
 module.exports = Utils
