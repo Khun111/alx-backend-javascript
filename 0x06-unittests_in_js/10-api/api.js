@@ -7,19 +7,19 @@ app.get('/', (_req, res) => {
     res.status(200).send('Welcome to the payment system')
 })
 app.get('/cart/:id', (req, res) => {
-        if (typeof req.params.id === Number) {
-    res.status(200).send(`Payment methods for cart ${req.params.id}`)
-        } else {
-    res.statusCode = 400
-        }
+    if (typeof req.params.id === Number) {
+        res.status(200).send(`Payment methods for cart ${req.params.id}`)
+    } else {
+        res.statusCode = 400
+    }
 })
 app.get('/available_payments', (_req, res) => {
     res.status(200).json({
-  "payment_methods": {
-    "credit_cards": true,
-    "paypal": false
-  }
-})
+        "payment_methods": {
+            "credit_cards": true,
+            "paypal": false
+        }
+    })
 })
 app.post('/login', (req, res) => {
     const user = req.body.userName;

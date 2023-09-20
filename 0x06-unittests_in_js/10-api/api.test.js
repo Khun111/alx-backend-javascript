@@ -41,18 +41,18 @@ describe('Test payments endpoint', () => {
     it('should return the correct message for payments', (done) => {
         request('http://localhost:7865/available_payments', (error, response, body) => {
             expect(JSON.parse(body)).to.deep.equal({
-  "payment_methods": {
-    "credit_cards": true,
-    "paypal": false
-}   
-})
-})
+                "payment_methods": {
+                    "credit_cards": true,
+                    "paypal": false
+                }
+            })
+        })
         done()
     })
     it('should return the correct status code for payments', (done) => {
         request('http://localhost:7865/available_payments', (error, response, body) => {
             expect(response.statusCode).to.equal(200)
-})
+        })
         done()
     })
 })
@@ -62,7 +62,7 @@ describe('Test login endpoint', () => {
         request({
             url: 'http://localhost:7865/login',
             method: 'POST',
-            body: {"userName": "Betty"},
+            body: { "userName": "Betty" },
             json: true
         }, (error, response, body) => {
             expect(body).to.equal('Welcome Betty')
@@ -73,7 +73,7 @@ describe('Test login endpoint', () => {
         request({
             url: 'http://localhost:7865/login',
             method: 'POST',
-            body: {"userName": "Betty"},
+            body: { "userName": "Betty" },
             json: true
         }, (error, response, body) => {
             expect(response.statusCode).to.equal(200)
@@ -84,7 +84,7 @@ describe('Test login endpoint', () => {
         request({
             url: 'http://localhost:7865/login',
             method: 'POST',
-            body: {"user": "Betty"},
+            body: { "user": "Betty" },
             json: true
         }, (error, response, body) => {
             expect(response.statusCode).to.equal(400)
