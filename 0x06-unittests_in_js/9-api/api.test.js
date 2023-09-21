@@ -1,7 +1,5 @@
 const request = require('request')
 const { expect } = require('chai')
-// eslint-disable-next-line no-unused-vars
-const app = require('./api')
 
 describe('Test index Page', () => {
     it('should return the correct status code', (done) => {
