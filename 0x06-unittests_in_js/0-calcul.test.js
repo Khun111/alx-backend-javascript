@@ -24,6 +24,21 @@ describe('calculateNumber', () => {
         it('should return NaN when passed an actual character', () => {
                 assert.strictEqual(calculateNumber('a', '3.9'), NaN)
         })
+        it('should return NaN when passed a dict', () => {
+                assert.strictEqual(calculateNumber(5, {}), NaN)
+        })
+        it('should work when passed an empty array', () => {
+                assert.strictEqual(calculateNumber(5, []), 5)
+        })
+        it('should work when passed an array of one number', () => {
+                assert.strictEqual(calculateNumber(5, [2]), 7)
+        })
+        it('should return NaN wgen the array contains more numbers', () => {
+                assert.strictEqual(calculateNumber(5, [2, 3]), NaN)
+        })
+        it('should return NaN wgen the array contains characters', () => {
+                assert.strictEqual(calculateNumber(5, ['a']), NaN)
+        })
         it('should work fine with booleans', () => {
                 assert.strictEqual(calculateNumber(true, 3.7), 5)
         })
