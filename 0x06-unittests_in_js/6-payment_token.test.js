@@ -7,5 +7,6 @@ describe('getPaymentTokenFromAPI', () => {
         expect(data).to.equal({data: 'Successful response from the API' })
         done()
     })
+    done()
     })
 })
