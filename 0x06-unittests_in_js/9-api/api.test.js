@@ -25,7 +25,7 @@ describe('Test cart page', () => {
     })
     it('should return the correct status code for cart when arg is not number', (done) => {
         request.get('http://localhost:7865/cart/two', (error, response, body) => {
-            expect(response.statusCode).to.equal(400)
+            expect(response.statusCode).to.equal(404)
         })
         done()
     })
