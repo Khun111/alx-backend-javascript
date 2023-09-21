@@ -1,5 +1,8 @@
-const request = require('request')
 const { expect } = require('chai')
+const request = require('request')
+// eslint-disable-next-line no-unused-vars
+const app = require('./api')
+
 
 describe('Index Page', () => {
     it('should return the correct status code', (done) => {
@@ -24,7 +27,7 @@ describe('Test cart page', () => {
     })
     it('should return the correct status code for cart when arg is not number', (done) => {
         request.get('http://localhost:7865/cart/two', (error, response, body) => {
-            expect(response.statusCode).to.equal(400)
+            expect(response.statusCode).to.equal(404)
         })
         done()
     })
@@ -39,19 +42,19 @@ describe('Test payments endpoint', () => {
     it('should return the correct message for payments', (done) => {
         request('http://localhost:7865/available_payments', (error, response, body) => {
             expect(JSON.parse(body)).to.deep.equal({
-                "payment_methods": {
-                    "credit_cards": true,
-                    "paypal": false
-                }
-            })
-        })
-        done()
+  "payment_methods": {
+    "credit_cards": true,
+    "paypal": false
+}   
+})
+done()
+})
     })
     it('should return the correct status code for payments', (done) => {
         request('http://localhost:7865/available_payments', (error, response, body) => {
             expect(response.statusCode).to.equal(200)
-        })
-        done()
+            done()
+})
     })
 })
 
@@ -60,7 +63,7 @@ describe('Test login endpoint', () => {
         request({
             url: 'http://localhost:7865/login',
             method: 'POST',
-            body: { "userName": "Betty" },
+            body: {"userName": "Betty"},
             json: true
         }, (error, response, body) => {
             expect(body).to.equal('Welcome Betty')
@@ -71,7 +74,7 @@ describe('Test login endpoint', () => {
         request({
             url: 'http://localhost:7865/login',
             method: 'POST',
-            body: { "userName": "Betty" },
+            body: {"userName": "Betty"},
             json: true
         }, (error, response, body) => {
             expect(response.statusCode).to.equal(200)
@@ -82,7 +85,7 @@ describe('Test login endpoint', () => {
         request({
             url: 'http://localhost:7865/login',
             method: 'POST',
-            body: { "user": "Betty" },
+            body: {"user": "Betty"},
             json: true
         }, (error, response, body) => {
             expect(response.statusCode).to.equal(400)

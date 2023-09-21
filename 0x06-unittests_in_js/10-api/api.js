@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.get('/', (_req, res) => {
     res.status(200).send('Welcome to the payment system')
 })
-app.get('/cart/:id', (req, res) => {
+app.get(/^\/cart\/(\d+)$/, (req, res) => {
     if (typeof req.params.id === Number) {
         res.status(200).send(`Payment methods for cart ${req.params.id}`)
     } else {
